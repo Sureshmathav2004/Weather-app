@@ -41,5 +41,5 @@ A clean, responsive weather application that provides real-time weather data for
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/weather-app.git
+   git clone [https://github.com/yourusername/weather-app.git](https://github.com/Sureshmathav2004/Weather-app.git)
    cd weather-app
