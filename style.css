@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4; 
+    color: #333; 
+}
+
+.app {
+    display: flex;
+    background-color: #fd6569; 
+    width: 90%;
+    max-width: 550px;
+    border-radius: 20px;
+    text-align: center;
+    flex-direction: column;
+    position: relative; 
+    margin: 25px auto; 
+    padding: 20px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav input {
+    padding: 10px 15px; 
+    height: 50px;
+    width: 70%; 
+    border-radius: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc; 
+    transition: border-color 0.3s; 
+}
+
+.nav input:focus {
+    border-color: #fd6569;
+    outline: none; 
+}
+
+.nav button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc; 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: background 0.3s; 
+    
+    margin-top: 5px;
+}
+
+.nav button:hover {
+    background: #d1f1f4; 
+}
+
+.Hw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0; 
+}
+
+.hum, .win {
+    display: flex;
+    align-items: center; 
+    padding: 10px; 
+}
+
+.hum img, .win img {
+    width: 30px; 
+    height: 30px;
+    margin-right: 5px; 
+}
+
+.hum-value, .win-value {
+    font-size: 18px; 
+    margin-left: 5px; 
+}
+
+.fun {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px; 
+}
+
+
+@media (max-width: 768px) {
+    .app {
+        width: 95%; 
+        padding: 15px; 
+    }
+
+    .nav input {
+        width: 100%; 
+    }
+
+    .fun {
+        flex-direction: column; 
+        margin-left: 0; 
+    }
+}
+.op{
+    display: none;
+}
+.err{
+    color: crimson;
+    background-color: black;
+    display: none;
+}

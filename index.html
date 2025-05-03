@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<div class="nav">
+  <input id='a'placeholder="City Name">
+  <button id="a0"><img src="C:\Users\sures\Desktop\Web development\html\Weather app\images\search.png"></button>
+</div>
+<div class="err">
+  <h3>ERROR</h3>
+</div>
+<div class="op">
+
+        <div class="city">
+          <img class="weathericon" src="C:\Users\sures\Desktop\Web development\html\Weather app\images\clear.png">
+          <h1 id="a1">22 °C</h1>
+          <h2 class="cityname" id="aa">Bengaluru</h2>
+        </div>
+
+        <div class="Hw">
+        <div class="hum">
+            <img src="C:\Users\sures\Desktop\Web development\html\Weather app\images\humidity.png">
+            <h3 id="a2">53%</h3>
+        </div>
+        
+        <div class="win">
+          <img src="C:\Users\sures\Desktop\Web development\html\Weather app\images\wind.png">
+          <h3 id="a3">5.66 km/h</h3>
+        </div>
+      </div>
+      <div class="fun">
+          <p>humidity</p>
+          <p>Wind Speed</p>
+       
+      </div>
+</div>
+</div>
+
+
+<script>
+const api='0f91a4858e8adff616727e732928e02d';
+
+const url='https://api.openweathermap.org/data/2.5/weather?units=metric';
+
+const butt=document.getElementById('a0');
+butt.addEventListener('click',function(){
+  app();
+  
+})
+
+
+async function app() {
+
+const inp=document.getElementById('a').value;
+
+  const response= await fetch(url+`&q=${inp}`+`&appid=${api}`);
+  
+  if( response.status==404){
+    document.querySelector('.err').style.display='block';
+    document.querySelector('.op').style.display='none';
+  }
+else{
+  document.querySelector('.op').style.display='block';
+  document.querySelector('.err').style.display='none';
+  const data=await response.json();
+  console.log(data);
+ document.getElementById('aa').textContent=inp;
+ document.getElementById('a1').textContent=Math.round(data.main.temp)+'°C';
+ document.getElementById('a3').textContent=data.wind.speed+'km/h';
+document.getElementById('a2').textContent=data.main.humidity+'%';
+ var weather=document.querySelector('.weathericon')
+ console.log(weather.src);
+ if(data.weather[0].main=='Mist'){
+    weather.src="images/mist.png";
+
+ }
+ else  if(data.weather[0].main=='clouds'){
+    weather.src="images/clouds.png";
+
+ }
+ else  if(data.weather[0].main=='drizzle'){
+    weather.src="images/drizzle.png";
+
+ }
+ else{
+    weather.src="images/clear.png";
+
+ }
+
+}}
+
+
+
+
+</script>
+
+</body>
+</html>
